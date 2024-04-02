@@ -60,7 +60,12 @@
     justify-content: center;
 }
 .services{
-    background: linear-gradient(274deg, #2e2e38, transparent);
+    background: linear-gradient(180deg, rgba(46, 46, 56, 0.4), transparent);
+    background-color: #cbcaca;
+}
+
+.service-desc-container{
+    background: linear-gradient(0deg, rgba(46, 46, 56, 0.4), transparent);
 }
 
 .our-services-heading {
@@ -80,8 +85,9 @@
     /* border-radius: 0.6rem; */
     transition: transform 500ms ease;
     position: relative;
-    background: linear-gradient(90deg, rgba(46, 46, 56, 0.4), transparent);
-    color: #fff;
+    /* background: linear-gradient(90deg, rgba(46, 46, 56, 0.4), transparent); */
+    background-color: transparent;
+    /* color: #fff; */
 }
 
 .service-seo {
@@ -140,6 +146,7 @@
   .details-heading {
     font-family: "Sacramento", cursive;
     font-size: 3.5rem;
+    text-align: center;
 }
 .service-desc-icons{
     width: 4.25rem;
@@ -175,6 +182,7 @@
 
 .about-us{
     position: relative;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.4), transparent);
     background-color: #eaeaea;
     
 }
@@ -187,6 +195,7 @@
     background-color: #515156;
     border-radius: 65%;
     top: -0.6875rem;
+    display: none;
 }
 
 .about-us-icon{
@@ -198,6 +207,8 @@
     border-radius: 50% 50% 50% 50%;
     top: -2.375rem;
     position: relative;
+    width: 14rem;
+    margin: 0 auto;
 }
 
 .about-us-desc{
@@ -215,8 +226,8 @@
 
 .contact-us {
     position: relative;
-    background: linear-gradient(183deg, #fdfdfd, transparent);
-    background-color: #e9dede;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), transparent);
+    background-color: #eaeaea;
 }
 
 .contact-us-icon{
@@ -226,8 +237,8 @@
     height: 8rem;
     width: 10rem;
     background-size: cover;
-    top: -0.5rem;
-    right: 3rem;
+    top: 0.59rem;
+    right: 0.4rem;
 }
 
 #contact-form {
@@ -286,6 +297,7 @@
     top: -28px;
     background-color: #FAF9F9;
     border-radius: 73%;
+    display: none;
 }
 
 
@@ -410,14 +422,13 @@ footer div {
         z-index: 2;
     }
 
-    .covering-container{
-        display: none;
+    
+
+    .about-us{        
+        background: #eaeaea;
     }
 
-    .about-us-icon{
-        width: 14rem;
-        margin: 0 auto;
-    }
+    
     .about-us{
         text-align: center;
         
@@ -436,10 +447,7 @@ footer div {
         width: 100%;
         justify-content: space-evenly;
     }
-
-    .covering-container-contact-us{
-        display: none;
-    }
+    
 
     .contact-us{
         position: relative;
