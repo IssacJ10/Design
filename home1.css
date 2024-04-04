@@ -87,7 +87,7 @@
     position: relative;
     /* background: linear-gradient(90deg, rgba(46, 46, 56, 0.4), transparent); */
     background-color: transparent;
-    /* color: #fff; */
+    color: #FCFCFC;
 }
 
 .service-seo {
@@ -98,6 +98,7 @@
     position: absolute;
     right: 2rem;
     top: -1.2rem;
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.8));
 }
 
 /* .service-desc:hover,.service-desc:active {
@@ -146,7 +147,7 @@
   .details-heading {
     font-family: "Sacramento", cursive;
     font-size: 3.5rem;
-    text-align: center;
+    text-align: center;    
 }
 .service-desc-icons{
     width: 4.25rem;
@@ -156,6 +157,7 @@
     border-radius: 50%;
     position: absolute;
     top: -1rem;
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.8));
 }
 .service-desc + .service-desc { /* Target subsequent service cards */
     /* border-top: 1px solid #e2e8f0;  */
@@ -209,6 +211,11 @@
     position: relative;
     width: 14rem;
     margin: 0 auto;
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.8));    
+}
+
+.spin{
+    animation: spin 3s cubic-bezier(0.33, 1, 0.68, 1) forwards;
 }
 
 .about-us-desc{
@@ -218,6 +225,7 @@
 }
 .about-us-subtitle{
     font-style: italic;
+    color: #FCFCFC;
 }
 .about-us-we-belive{
     text-align: center;
@@ -239,6 +247,7 @@
     background-size: cover;
     top: 0.59rem;
     right: 0.4rem;
+    filter: drop-shadow(2px 4px 6px black);
 }
 
 #contact-form {
@@ -275,8 +284,8 @@
   }
   
   button {
-    background: linear-gradient(0deg, #fff, #ff6f00);
-    background-color: #5a9c55;
+    /* background: linear-gradient(0deg, #fff, #ff6f00); */
+    background-color:#ffd130;
     color: black;
     padding: 1rem 1.5rem;
     border: none;
@@ -284,10 +293,11 @@
     cursor: pointer;
     margin-top: 1rem;    
     font-size: 0.8rem;
+    border: 1px dotted #fff;
 }
   
   button:hover {
-    background-color: #0069d9;
+    background-color: #ffc600;
   }
   .covering-container-contact-us {
     position: absolute;
@@ -304,6 +314,10 @@
 
 .animated-mail-icon{
     animation: jump 1s ease-in-out;
+}
+
+.btn-pressed{
+    transform: scale(0.9);
 }
   
 
@@ -344,9 +358,60 @@ footer div {
     }
 }
 
-.mobile-nav {
-    position: fixed;
-}
+/* @keyframes wriggleOpen {
+    0% {
+      transform: translateX(100%) skewX(-30deg) rotateZ(-30deg);
+      opacity: 0;
+    }
+    50% {
+      transform: translateX(50%) skewX(-15deg) rotateZ(-15deg);
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateX(0) skewX(0deg) rotateZ(0deg);
+      opacity: 1;
+    }
+  } */
+
+  @keyframes clothWave {
+    0% {
+        transform: translateX(263px);
+    }
+    25% {
+        transform: translateX(175px);
+    }
+    50% {
+        transform: translateX(50px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+  }
+
+  @keyframes popupClose {
+    0% {
+        transform: translateX(0px);
+    }
+    25% {
+        transform: translateX(50);
+    }
+    50% {
+        transform: translateX(175px);
+    }
+    100% {
+        transform: translateX(263px);
+    }
+  }
+
+  .animate-clothwave {
+    animation: clothWave 900ms linear;
+  }
+
+  .popupclose-animation{
+    animation: popupClose 900ms linear;
+  }
+
+
 
 .overlay {
     background-color: rgba(0, 0, 0, 0.7);
@@ -358,13 +423,17 @@ footer div {
 
 .mobile-nav {
     position: fixed;
-    background: #fff;
     z-index: 100002;
     width: 70%;
     height: 100%;
     top: 0;
-    right: 0;    
+    right: 0;
+    background: linear-gradient(180deg, white, black);   
+    transform: translateX(0);
+    transition: transform 500ms ease;
 }
+
+
 
 .open{
     display: block;
@@ -376,11 +445,29 @@ footer div {
 
 .mobile-nav .nav-items {
     padding: 1rem;
+    padding-top: 4rem;
     display: flex;
     flex-direction: column;
     height: 100%;
-    align-items: end;
+    align-items: center;
     gap: 3rem;
+}
+
+.mobile-nav .nav-items .nav-item{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    cursor: pointer;
+    /* background-color: #c79271; */
+    border: none;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s ease-in-out;
+    border: 1px solid #fcfcfc;
+}
+
+.mobile-nav .nav-items .nav-item a {
+    color: #000;
 }
 
 .close-btn{
@@ -388,11 +475,43 @@ footer div {
     /* padding-top: 0.5rem; */
     position: absolute;
     background: linear-gradient(199deg, red, transparent);
+    cursor: pointer;
+    right: 0;
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
 }
-  
-  /* .scroll-top-button:hover {
-    opacity: 1;  
-  } */
+
+.scroll-top-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 1.2rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    line-height: 3.25rem;
+  }
+
+
+  footer p{
+    font-size: 0.9rem;
+    font-family: cursive;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg); /* Determines the end state of the rotation */
+    }
+}
+ 
+
+
 
 @media screen and (min-width:1200px) {
     .home-banner {
@@ -467,6 +586,10 @@ footer div {
         line-height: 50px;  /* Align the icon vertically in the center */
         /* opacity: 0;          
         transition: opacity 0.3s ease-in-out;  */
+      }
+
+      .about-us-subtitle{
+        color: black;
       }
 
 }
