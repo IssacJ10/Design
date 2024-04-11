@@ -18,30 +18,37 @@
     font-style: normal;
 }
 
-
 .home-banner {
-    background-image: url("Designer (8).jpeg");
-    width: 100%;
+    background-image: url("Designer (5).png");
+    width: 100%;    
+    background-size: contain;   
+    background-repeat: no-repeat;
+    background-position: top;
     height: 12rem;
-    max-height: 12rem;
-    background-size: cover;
-    max-width: 26.875rem;
-    background-position: bottom;
 }
-.banner-section{
-    margin-top:0.4rem;
-}
+/* .banner-section{
+    margin-top:4.5rem;
+} */
 
 .nav-item-container{
     display: none;
 }
 .nav-container{
-    padding: 0.4rem;
+    /* padding: 0.4rem; */
     /* background-color: var(--header-footer-background); */
+}
+
+.navbar-brand{
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 0.4rem;
+    gap:0.3rem;
 }
 
 .nav-item a{
     text-decoration: none;
+    color:#000;
 }
 
 .mobile-menu-button {
@@ -60,12 +67,13 @@
     justify-content: center;
 }
 .services{
-    background: linear-gradient(180deg, rgba(46, 46, 56, 0.4), transparent);
-    background-color: #cbcaca;
+    background: linear-gradient(0deg, #cce8fb5e, transparent)
 }
 
-.service-desc-container{
-    background: linear-gradient(0deg, rgba(46, 46, 56, 0.4), transparent);
+.service-desc-container {
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
 }
 
 .our-services-heading {
@@ -87,12 +95,10 @@
     position: relative;
     /* background: linear-gradient(90deg, rgba(46, 46, 56, 0.4), transparent); */
     background-color: transparent;
-    color: #FCFCFC;
+    
 }
 
-.service-seo {
-    overflow: hidden;
-}
+
 
 .seo-icon {
     position: absolute;
@@ -184,9 +190,7 @@
 
 .about-us{
     position: relative;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.4), transparent);
-    background-color: #eaeaea;
-    
+    background: linear-gradient(161deg, #cce8fb5e, transparent);   
 }
 
 .covering-container{
@@ -222,10 +226,12 @@
     padding: 1rem;
     padding-top: 0;
     line-height: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .about-us-subtitle{
-    font-style: italic;
-    color: #FCFCFC;
+   
 }
 .about-us-we-belive{
     text-align: center;
@@ -234,8 +240,7 @@
 
 .contact-us {
     position: relative;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), transparent);
-    background-color: #eaeaea;
+    background: linear-gradient(0deg, #49a7e8cf, transparent);
 }
 
 .contact-us-icon{
@@ -316,8 +321,43 @@
     animation: jump 1s ease-in-out;
 }
 
-.btn-pressed{
-    transform: scale(0.9);
+
+
+.mobile-menu-button-container svg {
+    transition: transform 0.3s ease;
+  }
+  
+  /* This class will rotate the SVG to signify a close action */
+  .rotate-close-icon {
+    transform: rotate(180deg);
+  }
+  
+  /* Improve the mobile-nav appearance */
+ 
+  
+  /* Transition for the overlay to fade in and out */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 100001;
+    display: none; /* Initially hidden */
+}
+  
+  .overlay.open {
+    display: block;
+  }
+.img-seo{
+    height: 17.5rem !important;
+    position: relative;    
+    /* height: 100%;    
+    left: -46px; */
+}
+.service-desc-img{
+    height: 18.75rem;
 }
   
 
@@ -413,16 +453,22 @@ footer div {
 
 
 
-.overlay {
-    background-color: rgba(0, 0, 0, 0.7);
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    z-index: 10001;    
-}
+ 
 
-.mobile-nav {
-    position: fixed;
+
+    .mobile-nav {
+        /* position: fixed; */
+        /* top: 0;  */
+        /* right: 0;
+        width: 100%; 
+        height: 100%;
+        background: #fcfcfc;
+        z-index: 100002;
+        display: flex;
+        flex-direction: column;
+        transition: top 0.5s ease;  */
+    }
+    /* position: fixed;
     z-index: 100002;
     width: 70%;
     height: 100%;
@@ -430,8 +476,8 @@ footer div {
     right: 0;
     background: linear-gradient(180deg, white, black);   
     transform: translateX(0);
-    transition: transform 500ms ease;
-}
+    transition: transform 500ms ease; */
+
 
 
 
@@ -441,6 +487,11 @@ footer div {
 
 .close{
     display: none;
+}
+
+.mobile-nav-open {
+    top: 0 !important; /* Bring the nav down */
+    transition: top 0.5s ease;
 }
 
 .mobile-nav .nav-items {
@@ -470,16 +521,11 @@ footer div {
     color: #000;
 }
 
-.close-btn{
-    padding: 1rem;
-    /* padding-top: 0.5rem; */
-    position: absolute;
-    background: linear-gradient(199deg, red, transparent);
+.close-btn {
+    padding: 1rem;    
+    position: absolute;    
     cursor: pointer;
     right: 0;
-    width: 3rem;
-    height: 3rem;
-    text-align: center;
 }
 
 .scroll-top-button {
@@ -514,51 +560,69 @@ footer div {
 
 
 @media screen and (min-width:1200px) {
+
+    .contact-form-container{
+        width: 50%;
+    }
+    .service-desc + .service-desc {
+        padding-top: 2rem;
+    }
+    .img-seo {
+       
+        height: 18.75rem !important;  /* Example: Reset height to default */
+        left: 0;       /* Example: Reset left position */
+      }
+    .service-desc-img{
+        height: 18.75rem;
+    }
     .home-banner {
-        height: 30rem;
+        height: 26rem;
         max-width: 100%;
         max-height: 100%;
     }
     .services {
-        background: linear-gradient(180deg, rgba(46, 46, 56, 0.4), transparent);
-        background-color: #cbcaca;
+        background: linear-gradient(0deg, #63B8F3, transparent);
+                /* background: linear-gradient(180deg, rgba(46, 46, 56, 0.4), transparent);
+        background-color: #cbcaca; */
     }
     .service-desc{
         padding: 2rem;
         width: 50%;
         color: black;
         /* background-blend-mode: multiply; */
-        background: linear-gradient(180deg, rgba(46, 46, 56, 0.4), transparent);
-        background-color: #e8e8e8;
+        background: linear-gradient(0deg, #fff, transparent);
+        /* background-color: #e8e8e8; */
     }
     .service-desc-container{
         display: flex;
         justify-content: center;
+        flex-direction:  row;
     }
     .service-desc:hover{
-        transform: scale(1.05);
-        transition: transform  300ms ease-in-out;
+        filter: drop-shadow(2px 4px 6px blue);
+        transition: filter 300ms ease-in-out;
         z-index: 2;
     }
 
     
 
-    .about-us{        
-        background: #eaeaea;
-    }
-
     
     .about-us{
         text-align: center;
+        background: linear-gradient(0deg, #cce8fb5e, transparent);
         
     }
     .mobile-menu-button-container{
         display: none;
     }
+    .mobile-nav{
+        display: none;
+    }
     .nav-item-container{
         display:flex;
         padding: 2rem 2rem;
-        background: linear-gradient(180deg, #d9d9d9, transparent);
+        background: linear-gradient(180deg, #63b8f321, transparent);
+        padding-top: 0;
     }
 
     .nav-items{
@@ -566,11 +630,25 @@ footer div {
         width: 100%;
         justify-content: space-evenly;
     }
-    
+    .nav-item{
+        padding: 2rem 2rem;
+    }
+    .nav-item:hover{
+       background-color: rgba(46, 46, 46, 0.5);
+       transition: background-color 500ms ease-in-out;
+    }
+    .nav-item:hover a {
+        color: #FFFFFF; /* Change the color of the anchor tag on hover */        
+    }
 
     .contact-us{
         position: relative;
-    background: linear-gradient(177deg, #e9e9e9, transparent);
+        /* background: linear-gradient(180deg, #CCE8FB, transparent); */
+        background: linear-gradient(180deg, #cce8fb5e, transparent);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
     }
 
     .scroll-top-button {
@@ -590,6 +668,16 @@ footer div {
 
       .about-us-subtitle{
         color: black;
+        padding-left: 2rem;
+    padding-right: 2rem;
+    width: 50%;
+      }
+
+      .logo{
+        width: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
 }

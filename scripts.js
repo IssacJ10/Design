@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {  
   
     const contactUsSection = document.querySelector('.contact-us'); // Replace with your selector for the contact-us section
     const aboutUs = document.querySelector('#aboutUs');
@@ -65,31 +65,38 @@ scrollToTopButton.addEventListener('click', function() {
 });
 
 const mobileMenuButton = document.querySelector('.mobile-menu-button-container');
-const mobileNav = document.querySelector('.mobile-nav');
-const overlay = document.querySelector('.overlay');
+  const mobileNav = document.querySelector('.mobile-nav');
+  const overlay = document.querySelector('.overlay');
+  //const svgIcon = mobileMenuButton.querySelector('svg');
+  const menuIcon = document.querySelector('.menu-icon');
+    const closeIcon = document.querySelector('.close-icon');
 
-mobileMenuButton.addEventListener('click', () => {
-  if (mobileNav.classList.contains('close')) {
-    mobileNav.classList.remove('close');
-    mobileNav.classList.remove('popupclose-animation');    
-    mobileNav.classList.add('open');
-    mobileNav.classList.add('animate-clothwave');
-    overlay.classList.remove('close');
-    overlay.classList.add('open');
-  } else {
-    mobileNav.classList.remove('open');
-    mobileNav.classList.add('popupclose-animation');  
-    mobileNav.classList.remove('animate-clothwave');
-    mobileNav.classList.add('close');
-    overlay.classList.remove('open');
-    overlay.classList.add('close');
-  }
-});
+// mobileMenuButton.addEventListener('click', () => {
+//   menuIcon.style.display = menuIcon.style.display === 'none' ? 'block' : 'none';
+//   //closeIcon.style.display = closeIcon.style.display === 'block' ? 'none' : 'block';
+//   if (mobileNav.classList.contains('close')) {
+//     mobileNav.classList.remove('close');       
+//     mobileNav.classList.add('open');  
+//     setTimeout(() => {
+//       mobileNav.classList.add('mobile-nav-open');
+//     }, (50));
+    
+//     overlay.classList.remove('close');
+//     overlay.classList.add('open');
+//     //svgIcon.classList.toggle('rotate-close-icon');
+//   } else {
+//     mobileNav.classList.remove('open');
+//     mobileNav.classList.remove('mobile-nav-open'); 
+//     mobileNav.classList.add('close');
+//     overlay.classList.remove('open');
+//     overlay.classList.add('close');
+//   }
+// });
 
-const closeButton = document.querySelector('.close-btn');
-closeButton.addEventListener( 'click', () => {
-  closeMobileNav();
-});
+// const closeButton = document.querySelector('.close-btn');
+// closeButton.addEventListener( 'click', () => {  
+//   closeMobileNav();
+// });
 
 // Function to detect mobile device (replace with your preferred method)
 function isMobile() {
@@ -103,13 +110,16 @@ function closeMobileNav(){
           const overlay = document.querySelector('.overlay');
     
           mobileNav.classList.remove('open');  // Remove open class with transition
-          mobileNav.classList.add('popupclose-animation');
+         // mobileNav.classList.add('popupclose-animation');
           overlay.classList.remove('open');  // Remove open class with transition
-          
+          svgIcon.classList.remove('rotate-close-icon');
+          menuIcon.style.display = 'block';
+        closeIcon.style.display = 'none';
+        mobileNav.classList.remove('mobile-nav-open'); 
           
              // Add transition styles directly (adjust properties and duration as needed)
-          mobileNav.style.transition = 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out';
-          overlay.style.transition = 'opacity 0.5s ease-in-out';
+          //mobileNav.style.transition = 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out';
+          //overlay.style.transition = 'opacity 0.5s ease-in-out';
     
           // Remove the closing class after the transition completes (adjust duration as needed)
           setTimeout(() => {
@@ -118,6 +128,10 @@ function closeMobileNav(){
             document.querySelectorAll(".mobile-nav .nav-items .nav-item").forEach(li => li.classList.remove("btn-pressed"));
           }, 900); // Adjust duration for your desired transition time in milliseconds
 }
+
+overlay.addEventListener('click', () => {
+  closeMobileNav();
+});
 
 
   });
