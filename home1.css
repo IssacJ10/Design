@@ -231,7 +231,8 @@
     align-items: center;
 }
 .about-us-subtitle{
-   
+   padding: 1rem;
+   text-align: center;
 }
 .about-us-we-belive{
     text-align: center;
